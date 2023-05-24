@@ -19,7 +19,14 @@ const Calculator = () => {
     } else if (label === '.') {
       setInputValue((prevValue) => prevValue.includes('.') ? prevValue : prevValue + label);
     } else if (label === '+/-') {
-      setInputValue((prevValue) => prevValue * -1);
+      if (operation === '') {
+        setInputValue((prevValue) => {
+          const newValue = parseFloat(prevValue) * -1;
+          return newValue.toString();
+        });
+      } else {
+        setInputValue((prevValue) => prevValue * -1);
+      }
     } else if (label === 'C') {
       setInputValue('0');
       setOperation('');
@@ -27,8 +34,13 @@ const Calculator = () => {
     } else if (label === '=') {
       performOperation();
     } else if (label === 'x' || label === '/' || label === '-' || label === '+' || label === '%') {
+      if (operation === '') {
         setPreviousNumber(inputValue);
         setOperation(label);
+      } else {
+        performOperation();
+        setOperation(label);
+      }
     }
   };
 
@@ -44,7 +56,6 @@ const Calculator = () => {
       result = (previousValue * newValue).toString();
     } else if (operation === '/') {
       result = (previousValue / newValue).toString();
-      // Si es necesario, manejar divisiones por cero
       if (result === 'Infinity') {
         result = 'ERROR';
       }
@@ -58,6 +69,10 @@ const Calculator = () => {
       result = 'ERROR';
     }
 
+    if (parseFloat(result) < 0) {
+      result = 'ERROR';
+    }
+    
     setInputValue(result);
     setOperation('');
     setPreviousNumber(result);
