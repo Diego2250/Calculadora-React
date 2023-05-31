@@ -1,13 +1,13 @@
-import React from 'react';
-import Calculator from './Calculator.jsx';
-import './App.css';
+import React from 'react'
+import Calculator from './Calculator'
+import './App.css'
 
-const App = () => {
+function App() {
   return (
     <div>
       <Calculator />
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

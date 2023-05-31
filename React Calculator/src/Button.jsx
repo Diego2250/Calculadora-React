@@ -1,15 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './Button.css';
+import React from 'react'
+import PropTypes from 'prop-types'
+import './Button.css'
 
-const Button = ({ label, className, onClick }) => {
-  return <button className={className} onClick={onClick} >{label}</button>;
-};
+function Button({ label, className, onClick }) {
+  return <button type="button" className={className} onClick={onClick}>{label}</button>
+}
 
 Button.propTypes = {
   label: PropTypes.string.isRequired,
   className: PropTypes.string,
   onClick: PropTypes.func,
-};
+}
 
-export default Button;
+Button.defaultProps = {
+  className: '',
+  onClick: () => {},
+}
+
+export default Button
