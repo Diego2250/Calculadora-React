@@ -8,6 +8,13 @@ const Calculator = () => {
   const [previousNumber, setPreviousNumber] = useState('');
 
   const handleButtonClick = (label) => {
+
+    console.log(inputValue.length+1);
+    if (inputValue.length +1 > 10) {
+      setInputValue('ERROR');
+      alert('ERROR: El número es demasiado grande. Solo se permiten 9 dígitos.');
+    }
+
     if (/[0-9]/.test(label)) {
       if (inputValue.includes('ERROR')) {
         setInputValue(label);
@@ -16,6 +23,7 @@ const Calculator = () => {
       } else {
         setInputValue((prevValue) => prevValue === previousNumber ? label : prevValue + label);
       }
+      
     } else if (label === '.') {
       setInputValue((prevValue) => prevValue.includes('.') ? prevValue : prevValue + label);
     } else if (label === '+/-') {
@@ -81,11 +89,11 @@ const Calculator = () => {
 
   return (
     <div className="calculator">
-      <input type="text" readOnly className="input" value={inputValue} maxLength={5}/>
+      <input type="text" readOnly className="input" value={inputValue}/>
       <div className="buttons">
-        <Button className="botonCeleste" label="C" onClick={() => handleButtonClick("C")}/>
+        <Button className="botonCeleste" label="C" onClick={() => handleButtonClick("C") }/>
         <Button className="botonCeleste" label="+/-" onClick={() => handleButtonClick("+/-")}/>
-        <Button className="botonCeleste" label="%" onClick={() => handleButtonClick("%")}/>
+        <Button className="botonCeleste" label="MOD" onClick={() => handleButtonClick("%")}/>
         <Button className="botonMorado" label="÷" onClick={() => handleButtonClick("/")}/>
         <Button label="7" onClick={() => handleButtonClick("7")}/>
         <Button label="8" onClick={() => handleButtonClick("8")}/>
