@@ -87,7 +87,7 @@ function Calculator() {
     <div className="calculator">
       <input type="text" readOnly className="input" value={inputValue} />
       <div className="buttons">
-        <Button className="botonCeleste" label="{C}" onClick={() => handleButtonClick('C')} />
+        <Button className="botonCeleste" label="C" onClick={() => handleButtonClick('C')} />
         <Button className="botonCeleste" label="+/-" onClick={() => handleButtonClick('+/-')} />
         <Button className="botonCeleste" label="MOD" onClick={() => handleButtonClick('%')} />
         <Button className="botonMorado" label="÷" onClick={() => handleButtonClick('/')} />
