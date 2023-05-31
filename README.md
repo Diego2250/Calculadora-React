@@ -12,7 +12,7 @@ Calculadora implementada en React
 
 1. Clona el repositorio: 
 ```
-git clone git@github.com:Diego2250/Cacluladora-React.git
+git@github.com:Diego2250/Calculadora-React.git
 ```
 2. Instala las dependencias de Yarn:
 ```
