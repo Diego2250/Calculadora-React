@@ -73,8 +73,9 @@ const Calculator = () => {
       result = (previousValue + newValue).toString();
     }
 
-    if (parseFloat(result) > 999999999) {
+    if (parseFloat(result) > 999999999 || result.length + 1 > 10) {
       result = 'ERROR';
+      alert('ERROR: El número es demasiado grande. Solo se permiten 9 dígitos.');
     }
 
     if (parseFloat(result) < 0) {
